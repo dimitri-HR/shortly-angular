@@ -1,35 +1,31 @@
-angular.module('shortly.services', [])
+ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
   var Links = {};
 
-  Links.getAll = function (data) {
+  Links.getAll = function () {
+    // console.log('Services - getAll - data', data);
     return $http({
       method: 'GET',
       url: '/api/links'
       // data: data
     })
     .then(function (resp) {
-      console.log('resp[0]', resp.data[0]);
-      console.log('DATA', data);
+      console.log('Services - getAll THEN - resp.data', resp.data);
       return resp.data;
     });
   };
 
   Links.addOne = function (data) {
-    console.log('Services - AFTER addOne', data);
+    console.log('Services - addOne - data', data);
     return $http({
       method: 'POST',
       url: '/api/links',
       data: data
-      // data: [{
-      //   url: 'http://dima.com',
-      //   title: 'DIMA-DIMA-DIMA'
-      // }]
     })
     .then(function (resp) {
-      console.log('resp Services THEN - AFTER addOne', resp);
+      console.log('Services - addOne THEN - resp', resp);
       // $scope.data = resp.data;
       // return  // resp.data
       return resp;

@@ -58,7 +58,8 @@ describe('Services', function () {
 
       Links.addOne(github).then(function (resp) {
         expect(resp.status).to.equal(201);
-        expect(resp.data.title).to.equal('Hack Reactor Labs');
+        expect(resp.data.title).to.equal('reactorcore');
+        // expect(resp.data.title).to.equal('Hack Reactor Labs');
       });
 
       $httpBackend.flush();
@@ -67,5 +68,3 @@ describe('Services', function () {
   });
 
 });
-
-

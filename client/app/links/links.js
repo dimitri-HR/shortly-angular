@@ -4,23 +4,13 @@ angular.module('shortly.links', [])
   // Your code here
   $scope.data = {};
 
-  $scope.getAll = function () {
+console.log('TEST');
+  // $scope.getAll = function () {
     Links.getAll()
       .then(function (data) {
-        console.log('data - getAll', data);
-        $scope.data = data;
-        // $location.path('/links');
-      })
-      .catch(function (error) {
-        console.error('ERROR ----->>', error);
-      });
-  };
-
-  // $scope.addOne = function () {
-    Links.addOne($scope.data)
-      .then(function (data) {
-        console.log('data - LinksController - addOne', data);
-        $scope.data = data;
+        console.log('LinksController - data - getAll', data);
+        $scope.data.links = data;
+        console.log('$scope.data', $scope.data);
         // $location.path('/links');
       })
       .catch(function (error) {
@@ -28,5 +18,16 @@ angular.module('shortly.links', [])
       });
   // };
 
-  $scope.getAll();
+  // $scope.addOne = function () {
+  //   Links.addOne($scope.data)
+  //     .then(function (data) {
+  //       console.log('data - LinksController - addOne', data);
+  //       $scope.data = data;
+  //       // $location.path('/links');
+  //     })
+  //     .catch(function (error) {
+  //       console.error('ERROR ----->>', error);
+  //     });
+  // };
+
 });
