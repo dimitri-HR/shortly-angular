@@ -2,6 +2,41 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  var Links = {};
+
+  Links.getAll = function (data) {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+      // data: data
+    })
+    .then(function (resp) {
+      console.log('resp[0]', resp.data[0]);
+      console.log('DATA', data);
+      return resp.data;
+    });
+  };
+
+  Links.addOne = function (data) {
+    console.log('Services - AFTER addOne', data);
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: data
+      // data: [{
+      //   url: 'http://dima.com',
+      //   title: 'DIMA-DIMA-DIMA'
+      // }]
+    })
+    .then(function (resp) {
+      console.log('resp Services THEN - AFTER addOne', resp);
+      // $scope.data = resp.data;
+      // return  // resp.data
+      return resp;
+    });
+  };
+
+  return Links;
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
