@@ -5,33 +5,25 @@
   var Links = {};
 
   Links.getAll = function () {
-    // console.log('Services - getAll - data', data);
     return $http({
       method: 'GET',
       url: '/api/links'
-      // data: data
     })
     .then(function (resp) {
-      console.log('Services - getAll THEN - resp.data', resp.data);
       return resp.data;
     });
   };
 
-  Links.addOne = function (data) {
-    console.log('Services - addOne - data', data);
+  Links.addOne = function (link) {
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: data
+      data: link
     })
     .then(function (resp) {
-      console.log('Services - addOne THEN - resp', resp);
-      // $scope.data = resp.data;
-      // return  // resp.data
       return resp;
     });
   };
-
   return Links;
 })
 .factory('Auth', function ($http, $location, $window) {
